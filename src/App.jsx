@@ -2,32 +2,19 @@ import './App.css'
 import Card from './components/Card/Card'
 
 function App() {
-  const java = {
-    nome: 'Java',
-    imagem: 'https://www.salvatore.academy/devmon/1_java.png',
-    evoluiPara: 'Kotlin'
-  }
-  const kotlin = {
-    nome: 'Kotlin',
-    imagem: "https://www.salvatore.academy/devmon/2_kotlin.png",
-    evoluiPara: 'Adroid'
-  }
-  const andoid = {
-    nome: 'Andoid',
-    imagem: "https://www.salvatore.academy/devmon/3_android.png"
-  }
-  const c = {
-    nome: 'C',
-    imagem: "https://www.salvatore.academy/devmon/4_c.png",
-    evoluiPara: 'C++'
-  }
-  const cplusplus = {
-    nome: 'C++',
-    imagem: "https://www.salvatore.academy/devmon/5_cpp.png",
-    evoluiPara: 'C#'
+
+  const devmons =[]
+
+  async function fetchData(){
+  const apiUrl = 'https://backend-iniciante-integrar-com-frontend-vu0i.onrender.com/personagem'
+
+  const response =  await fetch(apiUrl)
+
+  const data = await response.json()
+  console.log(40, data)
   }
 
-  const devmons = [java, kotlin, andoid, c, cplusplus]
+  fetchData()
 
   return (
     <>
