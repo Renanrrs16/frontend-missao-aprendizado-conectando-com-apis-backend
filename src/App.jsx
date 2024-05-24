@@ -1,20 +1,25 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 import Card from './components/Card/Card'
 
 function App() {
 
-  const devmons =[]
+  const [devmons, setDevmons] = useState([])
 
-  async function fetchData(){
-  const apiUrl = 'https://backend-iniciante-integrar-com-frontend-vu0i.onrender.com/personagem'
+  async function fetchData() {
+    const apiUrl = 'https://backend-iniciante-integrar-com-frontend-vu0i.onrender.com/personagem'
 
-  const response =  await fetch(apiUrl)
+    const response = await fetch(apiUrl)
 
-  const data = await response.json()
-  console.log(40, data)
+    const data = await response.json()
+
+    setDevmons(data)
   }
 
-  fetchData()
+  useEffect(function () {
+    fetchData()
+  }, [])
+
 
   return (
     <>
